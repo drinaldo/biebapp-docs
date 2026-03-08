@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BiebApp – Handleiding</title>
+  <style>
+    :root {
+      --accent: #007AFF;
+      --green: #34C759;
+      --orange: #FF9500;
+      --bg: #f5f5f7;
+      --card: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --border: #e0e0e5;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+      color: white;
+      padding: 60px 24px 48px;
+      text-align: center;
+    }
+
+    .app-icon {
+      width: 96px;
+      height: 96px;
+      background: white;
+      border-radius: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    header h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 8px; }
+    header p  { font-size: 1.1rem; opacity: 0.9; max-width: 480px; margin: 0 auto; }
+
+    /* Nav */
+    nav {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      overflow-x: auto;
+      padding: 0 16px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    nav a {
+      display: block;
+      padding: 14px 16px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* Content */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    section { margin-bottom: 56px; }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    h3 { font-size: 1.1rem; font-weight: 600; margin: 24px 0 8px; }
+
+    p { color: var(--muted); margin-bottom: 12px; }
+
+    /* Cards */
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .card-title {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card p { margin: 0; font-size: 0.95rem; }
+
+    /* Tab grid */
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .tab {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 16px;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+
+    .tab-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .tab strong { display: block; font-size: 0.95rem; margin-bottom: 4px; }
+    .tab span { font-size: 0.82rem; color: var(--muted); }
+
+    /* Steps */
+    .steps { list-style: none; }
+
+    .steps li {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .steps li div p { margin: 0; }
+    .steps li div strong { display: block; margin-bottom: 2px; font-size: 0.95rem; }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .badge-green  { background: #d4f5e0; color: #1a7a3d; }
+    .badge-orange { background: #ffecd4; color: #9a4e00; }
+
+    /* Tip */
+    .tip {
+      background: #e8f4ff;
+      border-left: 4px solid var(--accent);
+      padding: 14px 18px;
+      border-radius: 0 10px 10px 0;
+      margin-top: 16px;
+      font-size: 0.92rem;
+      color: #004a99;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: white;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="app-icon">📚</div>
+  <h1>BiebApp</h1>
+  <p>Beheer de collectie van jouw buurtbieb eenvoudig met je iPhone</p>
+</header>
+
+<!-- Navigatie -->
+<nav>
+  <ul>
+    <li><a href="#intro">Introductie</a></li>
+    <li><a href="#schermen">Schermen</a></li>
+    <li><a href="#scannen">Scannen</a></li>
+    <li><a href="#collectie">Collectie</a></li>
+    <li><a href="#inventaris">Inventarisatie</a></li>
+    <li><a href="#tips">Tips</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- Introductie -->
+  <section id="intro">
+    <h2>Wat is BiebApp?</h2>
+    <p>BiebApp is een iPhone-app waarmee je als beheerder de collectie van een buurtbieb bijhoudt. Je scant boeken en tijdschriften via de camera, haalt automatisch boekinfo op en houdt bij welke items beschikbaar of uitgeleend zijn.</p>
+
+    <div class="tabs">
+      <div class="tab">
+        <span class="tab-icon">🏠</span>
+        <strong>Home</strong>
+        <span>Dashboard met statistieken</span>
+      </div>
+      <div class="tab">
+        <span class="tab-icon">📖</span>
+        <strong>Collectie</strong>
+        <span>Alle boeken en tijdschriften</span>
+      </div>
+      <div class="tab">
+        <span class="tab-icon">📷</span>
+        <strong>Scannen</strong>
+        <span>In- en uitboeken via barcode</span>
+      </div>
+      <div class="tab">
+        <span class="tab-icon">📋</span>
+        <strong>Inventaris</strong>
+        <span>Handmatige inventarisatie</span>
+      </div>
+      <div class="tab">
+        <span class="tab-icon">⚙️</span>
+        <strong>Instellingen</strong>
+        <span>Export en beheer</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      💡 De app synchroniseert automatisch via iCloud. Als je de app op meerdere Apple-apparaten installeert, is de collectie overal up-to-date.
+    </div>
+  </section>
+
+  <!-- Schermen -->
+  <section id="schermen">
+    <h2>Schermen</h2>
+
+    <h3>🏠 Home</h3>
+    <p>Het overzichtsscherm toont in één oogopslag hoeveel items de collectie telt, hoeveel er beschikbaar zijn en hoeveel er uitgeleend zijn. Onderaan zie je de laatste vijf acties.</p>
+
+    <h3>📖 Collectie</h3>
+    <p>Een volledige lijst van alle boeken en tijdschriften. Gebruik de filterknoppen bovenaan om te filteren op beschikbaarheid of type, of gebruik de zoekbalk om te zoeken op titel, auteur of ISBN.</p>
+    <p>Tik op een item voor de volledige detailpagina met beschrijving, omslagfoto, geschiedenis en de mogelijkheid om het item in of uit te boeken.</p>
+
+    <h3>📷 Scannen</h3>
+    <p>Het scanscherm opent direct de camera. Scan de barcode of ISBN van een boek en de app vraagt daarna wat je wil doen. Zie het onderdeel <a href="#scannen">Scannen</a> voor meer uitleg.</p>
+
+    <h3>📋 Inventarisatie</h3>
+    <p>Start een inventarisatiesessie en scan alle aanwezige items. Na afloop toont de app welke items <em>niet</em> gescand zijn — deze zijn mogelijk uitgeleend. Je kunt ze in één klik als uitgeleend markeren.</p>
+
+    <h3>⚙️ Instellingen</h3>
+    <p>Hier zie je statistieken, de iCloud-synchronisatiestatus en kun je de volledige collectie exporteren als CSV-bestand (te openen in Excel of Numbers).</p>
+  </section>
+
+  <!-- Scannen -->
+  <section id="scannen">
+    <h2>Scannen</h2>
+    <p>Het scannen werkt volledig op basis van de barcode of het ISBN-nummer op het boek of tijdschrift.</p>
+
+    <h3>Bekend item scannen</h3>
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div><strong>Open het Scan-tabblad</strong><p>De camera start automatisch.</p></div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div><strong>Richt de camera op de barcode</strong><p>De app herkent de barcode automatisch en toont het gevonden item.</p></div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div><strong>Kies de actie</strong>
+          <p>
+            <span class="badge badge-orange">↑ Uitboeken</span> — item wordt meegegeven (status wordt <em>Uitgeleend</em>)<br>
+            <span class="badge badge-green">↓ Inboeken</span> — item is teruggebracht (status wordt <em>Beschikbaar</em>)
+          </p>
+          <p style="margin-top:6px">De knop die niet van toepassing is, is automatisch uitgeschakeld.</p>
+        </div>
+      </li>
+    </ul>
+
+    <h3>Onbekend item scannen</h3>
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div><strong>Scan het ISBN</strong><p>Als het ISBN nog niet in de collectie staat, toont de app "Onbekend item".</p></div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div><strong>Tik op "Toevoegen aan collectie"</strong><p>De app haalt automatisch de boekinfo op (titel, auteur, beschrijving en omslagfoto) via internet.</p></div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div><strong>Controleer en sla op</strong><p>Pas de gegevens aan indien nodig en tik op Opslaan.</p></div>
+      </li>
+    </ul>
+
+    <h3>Geen barcode bij de hand?</h3>
+    <p>Tik op <strong>Handmatig invoeren</strong> onderin het scanscherm om een ISBN-nummer direct in te typen.</p>
+
+    <div class="tip">
+      💡 De barcodescanner werkt alleen op een echte iPhone — niet in de simulator. Het ISBN staat altijd op de achterflap van een boek, meestal boven de streepjescode.
+    </div>
+  </section>
+
+  <!-- Collectie -->
+  <section id="collectie">
+    <h2>Collectie beheren</h2>
+
+    <h3>Item handmatig toevoegen</h3>
+    <p>Tik in het Collectie-scherm op de <strong>+</strong> knop rechtsboven. Vul het ISBN in en tik op "Info ophalen" — de rest wordt automatisch ingevuld.</p>
+
+    <h3>Item bewerken</h3>
+    <p>Open het item, tik op de drie puntjes (···) rechtsboven en kies <strong>Bewerken</strong>. Je kunt alle velden aanpassen, inclusief notities.</p>
+
+    <h3>Boekinfo vernieuwen</h3>
+    <p>Op de detailpagina van een item staat een knop <strong>Boekinfo vernieuwen</strong>. Hiermee worden titel, auteur, beschrijving en omslagfoto opnieuw opgehaald via internet.</p>
+
+    <h3>Item verwijderen</h3>
+    <p>Via de drie puntjes (···) op de detailpagina kun je een item permanent verwijderen. In de Collectie-lijst kun je ook naar links vegen op een item.</p>
+
+    <div class="card">
+      <div class="card-title">📊 Statusoverzicht</div>
+      <p>
+        <span class="badge badge-green">✓ Beschikbaar</span> &nbsp; Het item staat in de bieb en kan worden meegegeven.<br><br>
+        <span class="badge badge-orange">↑ Uitgeleend</span> &nbsp; Het item is meegegeven en nog niet teruggebracht.
+      </p>
+    </div>
+  </section>
+
+  <!-- Inventarisatie -->
+  <section id="inventaris">
+    <h2>Inventarisatie</h2>
+    <p>Doe periodiek een inventarisatie om de werkelijke aanwezigheid te vergelijken met wat de app bijhoudt.</p>
+
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div><strong>Open het Inventaris-tabblad</strong><p>Tik op "Inventarisatie starten".</p></div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div><strong>Scan alle aanwezige items</strong><p>Scan elk boek en tijdschrift dat fysiek aanwezig is. De voortgangsbalk bovenin toont hoeveel er al gescand zijn.</p></div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div><strong>Tik op "Afronden"</strong><p>De app toont een samenvatting: hoeveel items aanwezig zijn en welke <em>niet</em> gescand zijn.</p></div>
+      </li>
+      <li>
+        <div class="step-num">4</div>
+        <div><strong>Markeer ontbrekende items</strong><p>Tik op "Markeer alle als uitgeleend" om de niet-gevonden items in één keer als uitgeleend te registreren.</p></div>
+      </li>
+    </ul>
+
+    <div class="tip">
+      💡 Je kunt een inventarisatie op elk moment annuleren met de knop "Annuleren". Er worden dan geen wijzigingen opgeslagen.
+    </div>
+  </section>
+
+  <!-- Tips -->
+  <section id="tips">
+    <h2>Tips &amp; veelgestelde vragen</h2>
+
+    <div class="card">
+      <div class="card-title">📷 De scanner herkent de barcode niet</div>
+      <p>Zorg voor voldoende licht en houd de telefoon stil. Probeer de barcode van iets verder weg te scannen. Je kunt altijd het ISBN handmatig invoeren via de knop onderin het scanscherm.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🌐 Boekinfo wordt niet gevonden</div>
+      <p>Niet elk boek staat in de online databases, met name oudere of Nederlandstalige titels. Vul in dat geval de gegevens handmatig in bij het toevoegen van het item.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">☁️ iCloud sync werkt niet</div>
+      <p>Controleer op je iPhone via Instellingen → [jouw naam] → iCloud of de app toestemming heeft voor iCloud. Zorg ook dat je een actieve internetverbinding hebt.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📤 Collectie exporteren</div>
+      <p>Via Instellingen → "Exporteer collectie als CSV" kun je alle items exporteren als een spreadsheet-bestand. Dit is handig als back-up of om de collectie in Excel of Numbers te bekijken.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🗑️ Item per ongeluk verwijderd</div>
+      <p>Verwijderde items kunnen niet automatisch hersteld worden vanuit de app. Voeg het item opnieuw toe via de + knop of via de scanner.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  BiebApp · Gemaakt voor buurtbieb beheer · Vragen? Neem contact op met de beheerder.
+</footer>
+
+</body>
+</html>
