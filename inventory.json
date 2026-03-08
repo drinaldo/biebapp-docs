@@ -1,0 +1,35 @@
+{
+  "availableItems" : 3,
+  "checkedOutItems" : 0,
+  "items" : [
+    {
+      "author" : "",
+      "coverImageURL" : "https:\/\/books.google.com\/books\/content?vid=ISBN9789492108210&printsec=frontcover&img=1&zoom=1",
+      "description" : "",
+      "isbn" : "9789492108210",
+      "status" : "Beschikbaar",
+      "title" : "Achterhoekse Kearls 2",
+      "type" : "Boek"
+    },
+    {
+      "author" : "Jeroen Meus",
+      "coverImageURL" : "https:\/\/books.google.com\/books\/content?vid=ISBN9789023014461&printsec=frontcover&img=1&zoom=1",
+      "description" : "",
+      "isbn" : "9789023014461",
+      "status" : "Beschikbaar",
+      "title" : "Dagelijkse kost",
+      "type" : "Boek"
+    },
+    {
+      "author" : "David Baldacci",
+      "coverImageURL" : "https:\/\/books.google.com\/books\/content?vid=ISBN9789044984019&printsec=frontcover&img=1&zoom=1",
+      "description" : "",
+      "isbn" : "9789044984019",
+      "status" : "Beschikbaar",
+      "title" : "De schuldigen",
+      "type" : "Boek"
+    }
+  ],
+  "lastUpdated" : "2026-03-08T23:56:55Z",
+  "totalItems" : 3
+}
